@@ -1,0 +1,10 @@
+.divflex {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.fontBold{
+  font-weight: bolder;
+  color: black;
+}
