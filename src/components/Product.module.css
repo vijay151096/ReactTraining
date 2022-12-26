@@ -1,0 +1,13 @@
+.chgInline {
+  display: inline;
+}
+
+.alignButtons{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.iconCursor{
+    cursor: pointer;
+}
