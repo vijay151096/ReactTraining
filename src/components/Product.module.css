@@ -1,13 +1,21 @@
 .chgInline {
   display: inline;
+  font-weight: bold;
 }
 
-.alignButtons{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+.alignButtons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
-.iconCursor{
-    cursor: pointer;
+.iconCursor {
+  cursor: pointer;
+}
+
+.quantityBtns {
+  width: 15%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

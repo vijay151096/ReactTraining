@@ -19,7 +19,9 @@ function Product({ item }) {
       body: JSON.stringify(bodyToSent),
     })
       .then((response) => response.json())
-      .then(() => {})
+      .then(() => {
+        setQuantity(1);
+      })
       .catch((error) => {
         console.error("Error:", error);
       });
@@ -49,7 +51,7 @@ function Product({ item }) {
       </CardContent>
       <CardActions>
         <div className={classes.alignButtons}>
-          <div>
+          <div className={classes.quantityBtns}>
             <i
               className={`minus icon ${classes.iconCursor}`}
               onClick={() => {
@@ -61,7 +63,7 @@ function Product({ item }) {
                 });
               }}
             ></i>
-            <p className={classes.chgInline}>{quantity}</p>
+            <span className={classes.chgInline}>{quantity}</span>
             <i
               className={`plus icon ${classes.iconCursor}`}
               onClick={() => {

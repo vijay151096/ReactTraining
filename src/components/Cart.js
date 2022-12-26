@@ -21,7 +21,7 @@ function Cart() {
       .then((data) => {
         let cost = 0;
         for (let json in data) {
-          cost += data[json].price;
+          cost += data[json].price*data[json].quantity;
         }
         setTotalCost(cost);
         setCart(data);
@@ -34,7 +34,7 @@ function Cart() {
     await setCart(newCart);
     let cost = 0;
     for (let json in newCart) {
-      cost += newCart[json].price;
+      cost += newCart[json].price*newCart[json].quantity;
     }
     setTotalCost(cost);
   };
