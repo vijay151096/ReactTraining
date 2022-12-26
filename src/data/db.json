@@ -801,14 +801,5 @@
       "details": "Drainage of Left Fibula, Open Approach, Diagnostic"
     }
   ],
-  "cart": [
-    {
-      "id": 2,
-      "name": "Lettuce - California Mix",
-      "price": 52,
-      "meta": "Sharable exuding circuit",
-      "cart": false,
-      "details": "Replacement of Left Ankle Joint with Synthetic Substitute, Cemented, Open Approach"
-    }
-  ]
+  "cart": []
 }
