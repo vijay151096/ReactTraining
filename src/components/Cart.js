@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { Button } from "semantic-ui-react";
-import classes from "./Cart.module.css";
+import classes from "../styles/Cart.module.css";
 
 function Cart() {
   const [cart, setCart] = useState([]);

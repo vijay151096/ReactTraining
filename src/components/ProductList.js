@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Product from "./Product";
 import { Card } from "semantic-ui-react";
-import classes from "./ProductList.module.css";
+import classes from "../styles/ProductList.module.css";
 
 function ProductList() {
   const [itemsList, setItemsList] = useState([]);
@@ -11,7 +11,6 @@ function ProductList() {
     fetch("http://localhost:8080/items")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setItemsList(data);
       });
   }, []);

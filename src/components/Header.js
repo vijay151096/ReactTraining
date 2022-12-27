@@ -4,7 +4,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import classes from "./Header.module.css";
+import classes from "../styles/Header.module.css";
 
 function Header() {
   return (

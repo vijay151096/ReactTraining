@@ -3,7 +3,7 @@ import { Card, Button } from "semantic-ui-react";
 import { useState } from "react";
 import { CardActions, CardContent, CardMedia } from "@mui/material";
 import Typography from "@mui/material/Typography";
-import classes from "./Product.module.css";
+import classes from "../styles/Product.module.css";
 
 function Product({ item }) {
   const [quantity, setQuantity] = useState(1);
