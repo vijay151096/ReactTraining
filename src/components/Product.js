@@ -36,18 +36,12 @@ function Product({ item }) {
         image={`https://picsum.photos/200/300?random=${item.id}`}
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {" "}
-          {item.name}{" "}
-        </Typography>
-        <Typography variant="body3" color="text.secondary">
-          {" "}
-          {item.meta}{" "}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {" "}
-          Rs. {item.price}{" "}
-        </Typography>
+        <Typography gutterBottom variant="h5" component="div"> {" "} {item.name} {" "} </Typography>
+        <Typography variant="body3" color="text.secondary"> {" "} {item.meta} {" "} </Typography>
+        <Typography variant="body2" color="text.secondary"> {" "} Rs. {item.price} {" "} </Typography>
+          <div className="detailSection">
+                <Typography variant="body4" color="text.secondary"> {" "} {item.details} {" "} </Typography>
+          </div>
       </CardContent>
       <CardActions>
         <div className={classes.alignButtons}>
