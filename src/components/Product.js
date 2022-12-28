@@ -88,16 +88,12 @@ function Product({ item }) {
               }}
             ></i>
           </div>
-<<<<<<< Updated upstream
           <Button
-            data-testid="add-btn"
+              data-testid={`addProduct_${item.id}`}
             size="small"
             onClick={(e) => handleClick(e, item.id)}
             primary
           >
-=======
-          <Button size="small" data-testid={`addProduct_${item.id}`} onClick={(e) => handleClick(e, item.id)} primary>
->>>>>>> Stashed changes
             Add
           </Button>
         </div>

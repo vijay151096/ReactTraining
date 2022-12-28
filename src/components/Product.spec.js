@@ -15,7 +15,7 @@ describe("Product Component Layout", () => {
   it("should display button to add the product when rendered", () => {
     const { getByTestId } = render(<Product item={item} />);
 
-    expect(getByTestId("add-btn")).toBeInTheDocument();
+    expect(getByTestId(/addProduct_/i)).toBeInTheDocument();
   });
 
   it("should have the icon to increase the quantity when rendered", () => {
