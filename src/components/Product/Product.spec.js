@@ -76,8 +76,10 @@ describe("Product Functionality", () => {
   it("should not decrease the count when minus icon is clicked having item quantity as 1", () => {
     const { getByTestId } = render(<Product item={item} />);
     expect(getByTestId("item-quantity")).toHaveTextContent("1");
+    act( () => {
+      fireEvent.click(getByTestId("minus-icon"));
+    } )
 
-    fireEvent.click(getByTestId("minus-icon"));
 
     expect(getByTestId("item-quantity")).toHaveTextContent("1");
   });

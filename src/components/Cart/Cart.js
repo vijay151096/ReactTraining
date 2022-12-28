@@ -41,7 +41,7 @@ function Cart() {
 
   const cartItems = cart.map((cartItem) => {
     return (
-      <>
+      <div key={cartItem.id}>
         <ListItem alignItems="flex-start">
           <ListItemAvatar>
             <Avatar
@@ -82,7 +82,7 @@ function Cart() {
           </Button>
         </ListItem>
         <Divider variant="inset" component="li" />
-      </>
+      </div>
     );
   });
 
@@ -100,7 +100,7 @@ function Cart() {
       <ListItem>
         <ListItemAvatar />
         <ListItemText id={"totalCostOfCartItems"}>
-            {totalCost == 0 && <h4>No Items in Cart</h4> }
+            {totalCost === 0 && <h4>No Items in Cart</h4> }
             {totalCost > 0 && <h4>Total Amount = {totalCost}</h4> }
         </ListItemText>
       </ListItem>
