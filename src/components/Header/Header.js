@@ -5,8 +5,13 @@ import Typography from "@mui/material/Typography";
 import { Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import classes from "./Header.module.css";
+import UserContext from "../../store/UserContext";
+import {useContext} from "react";
 
 function Header() {
+
+  const {isAuthenticated, logout} = useContext(UserContext);
+
   return (
     <AppBar position="static">
       <Toolbar variant="dense">
@@ -21,11 +26,12 @@ function Header() {
               Ecommerce
             </Typography>
           </Link>
-          <Link to="/cart" data-testid="cart-link">
-            <Button data-testid="cart-btn" secondary>
-              cart
-            </Button>
-          </Link>
+          {isAuthenticated && <div>
+            <Link to="/cart" data-testid="cart-link">
+              <Button data-testid="cart-btn" secondary> cart </Button>
+            </Link>
+            <Button data-testid="cart-btn" secondary onClick={logout}> Logout </Button>
+          </div> }
         </div>
       </Toolbar>
     </AppBar>

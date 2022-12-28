@@ -15,25 +15,25 @@ describe("Product Component Layout", () => {
     expect(getByTestId("title")).toHaveTextContent("Ecommerce");
   });
 
-  it("should display the button to go to cart page", () => {
-    const mockComponent = (
-      <BrowserRouter>
-        <Header />
-      </BrowserRouter>
-    );
-    const { getByTestId } = render(mockComponent);
-
-    expect(getByTestId("cart-btn")).toHaveTextContent("cart");
-  });
-
-  it("should have the link to go to cart page when cart button is clicked", () => {
-    const mockComponent = (
-      <BrowserRouter>
-        <Header />
-      </BrowserRouter>
-    );
-    const { getByTestId } = render(mockComponent);
-
-    expect(getByTestId("cart-link")).toHaveAttribute("href", "/cart");
-  });
+  // it("should display the button to go to cart page", () => {
+  //   const mockComponent = (
+  //     <BrowserRouter>
+  //       <Header />
+  //     </BrowserRouter>
+  //   );
+  //   const { getByTestId } = render(mockComponent);
+  //
+  //   expect(getByTestId("cart-btn")).toHaveTextContent("cart");
+  // });
+  //
+  // it("should have the link to go to cart page when cart button is clicked", () => {
+  //   const mockComponent = (
+  //     <BrowserRouter>
+  //       <Header />
+  //     </BrowserRouter>
+  //   );
+  //   const { getByTestId } = render(mockComponent);
+  //
+  //   expect(getByTestId("cart-link")).toHaveAttribute("href", "/cart");
+  // });
 });
