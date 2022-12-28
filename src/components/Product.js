@@ -30,24 +30,42 @@ function Product({ item }) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
+        data-testid="item-image"
         component="img"
         alt="green iguana"
         height="140"
         image={`https://picsum.photos/200/300?random=${item.id}`}
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div"> {" "} {item.name} {" "} </Typography>
-        <Typography variant="body3" color="text.secondary"> {" "} {item.meta} {" "} </Typography>
-        <Typography variant="body2" color="text.secondary"> {" "} Rs. {item.price} {" "} </Typography>
-          <div className="detailSection">
-                <Typography variant="body4" color="text.secondary"> {" "} {item.details} {" "} </Typography>
-          </div>
+        <Typography
+          data-testid="item-name"
+          gutterBottom
+          variant="h5"
+          component="div"
+        >
+          {item.name}
+        </Typography>
+        <Typography
+          data-testid="item-meta"
+          variant="body3"
+          color="text.secondary"
+        >
+          {item.meta}
+        </Typography>
+        <Typography
+          data-testid="item-price"
+          variant="body2"
+          color="text.secondary"
+        >
+          Rs. {item.price}
+        </Typography>
       </CardContent>
       <CardActions>
         <div className={classes.alignButtons}>
           <div className={classes.quantityBtns}>
             <i
               className={`minus icon ${classes.iconCursor}`}
+              data-testid="minus-icon"
               onClick={() => {
                 setQuantity((prevQuantity) => {
                   if (prevQuantity > 1) {
@@ -57,9 +75,12 @@ function Product({ item }) {
                 });
               }}
             ></i>
-            <span className={classes.chgInline}>{quantity}</span>
+            <span data-testid="item-quantity" className={classes.chgInline}>
+              {quantity}
+            </span>
             <i
               className={`plus icon ${classes.iconCursor}`}
+              data-testid="plus-icon"
               onClick={() => {
                 setQuantity((prevQuantity) => {
                   return prevQuantity + 1;
@@ -67,7 +88,12 @@ function Product({ item }) {
               }}
             ></i>
           </div>
-          <Button size="small" onClick={(e) => handleClick(e, item.id)} primary>
+          <Button
+            data-testid="add-btn"
+            size="small"
+            onClick={(e) => handleClick(e, item.id)}
+            primary
+          >
             Add
           </Button>
         </div>
