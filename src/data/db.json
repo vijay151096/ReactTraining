@@ -801,15 +801,5 @@
       "details": "Drainage of Left Fibula, Open Approach, Diagnostic"
     }
   ],
-  "cart": [
-    {
-      "id": 1,
-      "name": "Sunflower Seed Raw",
-      "price": 76,
-      "meta": "Up-sized disintermediate knowledge user",
-      "cart": false,
-      "details": "Removal of Drainage Device from Bladder, Open Approach",
-      "quantity": 4
-    }
-  ]
+  "cart": []
 }

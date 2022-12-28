@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Product from "./Product";
+import Product from "../Product/Product";
 import { Card } from "semantic-ui-react";
-import classes from "../styles/ProductList.module.css";
+import classes from "./ProductList.module.css";
 
 function ProductList() {
   const [itemsList, setItemsList] = useState([]);

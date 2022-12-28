@@ -1,8 +1,8 @@
 import "./styles/App.css";
 import React from "react";
-import Header from "./components/Header";
-import ProductList from "./components/ProductList";
-import Cart from "./components/Cart";
+import Header from "./components/Header/Header";
+import ProductList from "./components/ProductList/ProductList";
+import Cart from "./components/Cart/Cart";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {

@@ -1,6 +1,5 @@
 import { render, fireEvent, act } from "@testing-library/react";
 import Product from "./Product";
-import "@testing-library/jest-dom";
 
 describe("Product Component Layout", () => {
   const item = {
@@ -102,7 +101,7 @@ describe("Product Functionality", () => {
     );
     const { getByTestId } = render(<Product item={item} />);
     act(() => {
-      fireEvent.click(getByTestId("add-btn"));
+      fireEvent.click(getByTestId(/addProduct_/i));
     });
 
     expect(global.fetch).toBeCalled();
@@ -118,7 +117,7 @@ describe("Product Functionality", () => {
     const { getByTestId } = render(<Product item={item} />);
 
     act(() => {
-      fireEvent.click(getByTestId("add-btn"));
+      fireEvent.click(getByTestId(/addProduct_/i));
     });
 
     expect(global.fetch).toBeCalled();
