@@ -100,4 +100,13 @@ describe("Product Functionality", () => {
 
     expect(global.fetch).toBeCalled();
   });
+  it("should reset the count when user clicks on add button", () => {
+    global.fetch = jest.fn(() => Promise.resolve({}));
+    const { getByTestId } = render(<Product item={item} />);
+
+    fireEvent.click(getByTestId("add-btn"));
+
+    expect(global.fetch).toBeCalled();
+    expect(getByTestId("item-quantity")).toHaveTextContent("1");
+  });
 });
