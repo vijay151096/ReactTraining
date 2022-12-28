@@ -1,4 +1,4 @@
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, act } from "@testing-library/react";
 import Product from "./Product";
 import "@testing-library/jest-dom";
 
@@ -93,18 +93,33 @@ describe("Product Functionality", () => {
   });
 
   it("should send the request when user clicks on add button", () => {
-    global.fetch = jest.fn(() => Promise.resolve({}));
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => {
+          return {};
+        },
+      })
+    );
     const { getByTestId } = render(<Product item={item} />);
-
-    fireEvent.click(getByTestId("add-btn"));
+    act(() => {
+      fireEvent.click(getByTestId("add-btn"));
+    });
 
     expect(global.fetch).toBeCalled();
   });
   it("should reset the count when user clicks on add button", () => {
-    global.fetch = jest.fn(() => Promise.resolve({}));
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => {
+          return {};
+        },
+      })
+    );
     const { getByTestId } = render(<Product item={item} />);
 
-    fireEvent.click(getByTestId("add-btn"));
+    act(() => {
+      fireEvent.click(getByTestId("add-btn"));
+    });
 
     expect(global.fetch).toBeCalled();
     expect(getByTestId("item-quantity")).toHaveTextContent("1");

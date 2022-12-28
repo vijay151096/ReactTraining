@@ -20,12 +20,12 @@ function ProductList() {
   ));
 
   return (
-    <div className={classes.divcenter} >
-        <div className={classes.margin}>
-          <Card.Group doubling itemsPerRow={4} stackable>
-            {products}
-          </Card.Group>
-        </div>
+    <div className={classes.divcenter}>
+      <div className={classes.margin}>
+        <Card.Group doubling itemsPerRow={4} stackable data-testid="products-card">
+          {products}
+        </Card.Group>
+      </div>
     </div>
   );
 }

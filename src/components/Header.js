@@ -12,7 +12,14 @@ function Header() {
       <Toolbar variant="dense">
         <div className={classes.divflex}>
           <Link to="/">
-            <Typography variant="h6" color="black" component="div"> Ecommerce </Typography>
+            <Typography
+              data-testid="title"
+              variant="h6"
+              color="black"
+              component="div"
+            >
+              Ecommerce
+            </Typography>
           </Link>
           <Link to="/cart">
             <Button secondary>cart</Button>
