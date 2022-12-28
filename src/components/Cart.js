@@ -45,11 +45,12 @@ function Cart() {
         <ListItem alignItems="flex-start">
           <ListItemAvatar>
             <Avatar
-              alt="Remy Sharp"
+              alt={cartItem.name}
               src={`https://picsum.photos/200/300?random=${cartItem.id}`}
             />
           </ListItemAvatar>
           <ListItemText
+              data-testid={`ItemName_${cartItem.id}`}
             primary={cartItem.name}
             secondary={
               <React.Fragment>
@@ -58,6 +59,7 @@ function Cart() {
                   component="span"
                   variant="body2"
                   color="text.primary"
+                  data-testid={`ItemPrice_${cartItem.id}`}
                 >
                   Price : {cartItem.price}
                 </Typography>
@@ -68,13 +70,14 @@ function Cart() {
                   variant="body2"
                   color="text.primary"
                   className={classes.chgBlock}
+                  data-testid={`ItemQuantity_${cartItem.id}`}
                 >
                   Quantity : {cartItem.quantity}
                 </Typography>
               </React.Fragment>
             }
           />
-          <Button size="small" onClick={(e) => handleClick(e, cartItem.id)}>
+          <Button size="small" data-testid={`removeProduct_${cartItem.id}`} onClick={(e) => handleClick(e, cartItem.id)}>
             Remove
           </Button>
         </ListItem>
@@ -96,7 +99,7 @@ function Cart() {
       {cartItems}
       <ListItem>
         <ListItemAvatar />
-        <ListItemText>
+        <ListItemText id={"totalCostOfCartItems"}>
           <h4>Total Amount = {totalCost}</h4>
         </ListItemText>
       </ListItem>

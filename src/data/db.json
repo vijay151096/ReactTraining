@@ -801,33 +801,5 @@
       "details": "Drainage of Left Fibula, Open Approach, Diagnostic"
     }
   ],
-  "cart": [
-    {
-      "id": 3,
-      "name": "Beef - Ground Lean Fresh",
-      "price": 67,
-      "meta": "Managed actuating open architecture",
-      "cart": true,
-      "details": "Insertion of Radioactive Element into Pericardial Cavity, Percutaneous Endoscopic Approach",
-      "quantity": 5
-    },
-    {
-      "id": 6,
-      "name": "Bread - Sticks, Thin, Plain",
-      "price": 58,
-      "meta": "Pre-emptive multi-tasking projection",
-      "cart": false,
-      "details": "Insertion of Intraluminal Device into Left External Iliac Artery, Percutaneous Approach",
-      "quantity": 5
-    },
-    {
-      "id": 5,
-      "name": "Soup Campbells - Tomato Bisque",
-      "price": 90,
-      "meta": "Ameliorated client-server paradigm",
-      "cart": false,
-      "details": "Low Dose Rate (LDR) Brachytherapy of Bone Marrow using Iodine 125 (I-125)",
-      "quantity": 3
-    }
-  ]
+  "cart": []
 }
