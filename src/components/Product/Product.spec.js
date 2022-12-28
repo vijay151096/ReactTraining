@@ -101,7 +101,7 @@ describe("Product Functionality", () => {
     );
     const { getByTestId } = render(<Product item={item} />);
     act(() => {
-      fireEvent.click(getByTestId(/addProduct_/i));
+      fireEvent.click(getByTestId(`addProduct_${item.id}`));
     });
 
     expect(global.fetch).toBeCalled();
@@ -117,7 +117,7 @@ describe("Product Functionality", () => {
     const { getByTestId } = render(<Product item={item} />);
 
     act(() => {
-      fireEvent.click(getByTestId(/addProduct_/i));
+      fireEvent.click(getByTestId(`addProduct_${item.id}`));
     });
 
     expect(global.fetch).toBeCalled();

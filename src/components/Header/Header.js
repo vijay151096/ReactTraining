@@ -21,8 +21,10 @@ function Header() {
               Ecommerce
             </Typography>
           </Link>
-          <Link to="/cart">
-            <Button secondary>cart</Button>
+          <Link to="/cart" data-testid="cart-link">
+            <Button data-testid="cart-btn" secondary>
+              cart
+            </Button>
           </Link>
         </div>
       </Toolbar>
