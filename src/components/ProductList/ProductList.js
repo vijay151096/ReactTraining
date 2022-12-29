@@ -16,7 +16,7 @@ function ProductList() {
   }, []);
 
   let products = itemsList.map((item) => (
-    <Product key={item.name} item={item} />
+    <Product key={item.id} item={item} />
   ));
 
   return (
