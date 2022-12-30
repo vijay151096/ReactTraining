@@ -4,9 +4,21 @@ import { useState } from "react";
 import { CardActions, CardContent, CardMedia } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import classes from "./Product.module.css";
+import ProductDetailModal from "../ProductDetail/ProductDetail";
 
 function Product({ item }) {
   const [quantity, setQuantity] = useState(1);
+
+  const [isProductDetailsVisibile, setIsProductDetailsVisibile] =
+    useState(false);
+
+  const handleNameClick = (e) => {
+    setIsProductDetailsVisibile(true);
+  };
+
+  const handleCloseProductDetail = (e) => {
+    setIsProductDetailsVisibile(false);
+  };
 
   const handleClick = async (e, id) => {
     const bodyToSent = { ...item, quantity: quantity };
@@ -42,9 +54,17 @@ function Product({ item }) {
           gutterBottom
           variant="h5"
           component="div"
+          onClick={handleNameClick}
+          className={classes.linkToProducts}
         >
           {item.name}
         </Typography>
+        {isProductDetailsVisibile && (
+          <ProductDetailModal
+            handleClick={handleCloseProductDetail}
+            item={item}
+          />
+        )}
         <Typography
           data-testid="item-meta"
           variant="body3"
@@ -89,7 +109,7 @@ function Product({ item }) {
             ></i>
           </div>
           <Button
-              data-testid={`addProduct_${item.id}`}
+            data-testid={`addProduct_${item.id}`}
             size="small"
             onClick={(e) => handleClick(e, item.id)}
             primary
