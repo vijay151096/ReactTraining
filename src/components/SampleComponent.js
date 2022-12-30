@@ -3,18 +3,33 @@ import useFetch from "../hooks/use-Fetch";
 import { useEffect } from "react";
 
 function SampleComponent() {
-  const getRequestResult = useFetch("users", "GET");
   const newUser = {
-    id: 8,
-    username: "user8",
+    id: 20,
+    username: "user20",
     password: "password",
   };
-  const postRequestResult = useFetch("users", "POST", JSON.stringify(newUser));
+  /*const getRequestResult = useFetch("users", "GET");
+  const postRequestResult = useFetch("users", "POST", newUser);*/
+
+  const sendRequestObject = useFetch();
+
+  const handleClick = (e) => {
+    sendRequestObject.fetchRequest("users", "POST", newUser);
+  };
+
+  useEffect(() => {
+    sendRequestObject.fetchRequest("users", "GET");
+  }, []);
 
   return (
     <div>
-      <h1>{getRequestResult.state}</h1>
-      <h1>{getRequestResult.data[0] && getRequestResult.data[0].username}</h1>
+      <h1>{sendRequestObject.state}</h1>
+      {false && (
+        <h1>
+          {sendRequestObject.data[0] && sendRequestObject.data[0].username}
+        </h1>
+      )}
+      <button onClick={handleClick}>Click to send post request</button>
     </div>
   );
 }

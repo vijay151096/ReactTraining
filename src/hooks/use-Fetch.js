@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-const useFetch = (uri, method, body) => {
+const useFetch = () => {
   const [state, setState] = useState("loading");
-  const [data, setData] = useState({});
+  const [data, setData] = useState();
 
-  useEffect(() => {
-    const fetchData = async () => {
+  const fetchData = async (uri, method, body) => {
+    try {
       const response = await fetch(`http://localhost:8080/${uri}`, {
         method: method,
         headers: {
@@ -13,14 +13,21 @@ const useFetch = (uri, method, body) => {
         },
         body: body && JSON.stringify(body),
       });
-      const dataToAdd = await response.json();
-      setState("done");
-      setData(dataToAdd);
-    };
-    fetchData();
-  }, []);
 
-  return { data: data, state: state };
+      if (response.ok) {
+        const dataToAdd = await response.json();
+        setData(dataToAdd);
+        setState("done");
+      }
+      if (!response.ok) {
+        setState("error");
+      }
+    } catch {
+      setState("error");
+    }
+  };
+
+  return { data: data, state: state, fetchRequest: fetchData };
 };
 
 export default useFetch;

@@ -6,7 +6,6 @@ import Cart from "./components/Cart/Cart";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import UserContext from "./store/UserContext";
 import Login from "./components/Login/Login";
-import SampleComponent from "./components/SampleComponent";
 
 function App() {
   const { isAuthenticated } = useContext(UserContext);

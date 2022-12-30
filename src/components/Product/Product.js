@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Card, Button } from "semantic-ui-react";
 import { useState } from "react";
 import { CardActions, CardContent, CardMedia } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import classes from "./Product.module.css";
 import ProductDetailModal from "../ProductDetail/ProductDetail";
+import useFetch from "../../hooks/use-Fetch";
 
 function Product({ item }) {
   const [quantity, setQuantity] = useState(1);
+
+  const { state, fetchRequest } = useFetch();
 
   const [isProductDetailsVisibile, setIsProductDetailsVisibile] =
     useState(false);
@@ -22,22 +25,17 @@ function Product({ item }) {
 
   const handleClick = async (e, id) => {
     const bodyToSent = { ...item, quantity: quantity };
-
-    fetch("http://localhost:8080/cart", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(bodyToSent),
-    })
-      .then((response) => response.json())
-      .then(() => {
-        setQuantity(1);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+    await fetchRequest("cart", "POST", bodyToSent);
   };
+
+  useEffect(() => {
+    if (state === "done") {
+      setQuantity(1);
+    }
+    if (state === "error") {
+      console.log("Error Occured!");
+    }
+  }, [state]);
 
   return (
     <Card sx={{ maxWidth: 345 }}>
