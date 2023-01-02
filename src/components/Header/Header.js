@@ -8,7 +8,7 @@ import classes from "./Header.module.css";
 import UserContext from "../../store/UserContext";
 import {useContext} from "react";
 
-function Header() {
+function Header({}) {
 
   const {isAuthenticated, logout} = useContext(UserContext);
 
@@ -30,7 +30,7 @@ function Header() {
             <Link to="/cart" data-testid="cart-link">
               <Button data-testid="cart-btn" secondary> cart </Button>
             </Link>
-            <Button data-testid="cart-btn" secondary onClick={logout}> Logout </Button>
+            <Button data-testid="logout-btn" secondary onClick={logout}> Logout </Button>
           </div> }
         </div>
       </Toolbar>

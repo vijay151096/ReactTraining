@@ -19,8 +19,9 @@ function Cart() {
 
     useEffect( () => {
         const getCart = async() => {
-            await fetchRequest(`cart`, "GET");
+            state === "loading" && await fetchRequest(`cart`, "GET");
             if(state === "done") {
+                console.log("Running");
                 let cost = 0;
                 for (let json in data) {
                     cost += data[json].price * data[json].quantity;

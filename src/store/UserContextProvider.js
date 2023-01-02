@@ -24,11 +24,8 @@ function UserContextProvider(props) {
   };
 
   return (
-    <UserContext.Provider
-      value={{ isAuthenticated, login: login, logout: logout }}
-    >
-      {" "}
-      {props.children}{" "}
+    <UserContext.Provider value={{ isAuthenticated, login: login, logout: logout }} >
+      {props.children}
     </UserContext.Provider>
   );
 }
