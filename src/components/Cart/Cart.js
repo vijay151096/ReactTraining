@@ -16,6 +16,7 @@ function Cart() {
   const [cart, setCart] = useState(null);
   const [totalCost, setTotalCost] = useState(0);
     const {state, data, fetchRequest} = useFetch();
+
     useEffect( () => {
         const getCart = async() => {
             await fetchRequest(`cart`, "GET");

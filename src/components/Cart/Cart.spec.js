@@ -110,6 +110,7 @@ const prePopulateProductList =  async(moreItem) => {
     }
     global.fetch = await jest.fn(() => Promise.resolve({
             response: response,
+            ok: true,
             json: () => { return response }
         }
     ));
