@@ -25,6 +25,7 @@ const useFetch = () => {
     } catch {
       setState("error");
     }
+    return { data: data }
   };
 
   return { data: data, state: state, fetchRequest: fetchData };

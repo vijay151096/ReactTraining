@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import UserContext from "./UserContext";
+import useFetch from "../hooks/use-Fetch";
 
 function UserContextProvider(props) {
   const user = localStorage.getItem("username");
   const isLoggedIn = user === null ? false : true;
   const [isAuthenticated, setIsAuthenticated] = useState(isLoggedIn);
+  const {data, fetchRequest} = useFetch();
+
   const login = async (username, password) => {
-    const response = await fetch("http://localhost:8080/users");
-    const data = await response.json();
-    const userDetails = await data.filter(
+    await fetchRequest("users", "GET");
+    const userDetails = await data && data.filter(
       (user) => user.username === username
     )[0];
-    if (userDetails.username && userDetails.password === password) {
+    if (userDetails && userDetails.username && userDetails.password === password) {
       setIsAuthenticated(true);
       localStorage.setItem("username", userDetails.username);
     }

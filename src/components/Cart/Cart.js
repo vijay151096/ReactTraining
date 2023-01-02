@@ -10,27 +10,31 @@ import {
 import Typography from "@mui/material/Typography";
 import { Button } from "semantic-ui-react";
 import classes from "./Cart.module.css";
+import useFetch from "../../hooks/use-Fetch";
 
 function Cart() {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(null);
   const [totalCost, setTotalCost] = useState(0);
-
-  useEffect(() => {
-    fetch("http://localhost:8080/cart")
-      .then((response) => response.json())
-      .then((data) => {
-        let cost = 0;
-        for (let json in data) {
-          cost += data[json].price*data[json].quantity;
+    const {state, data, fetchRequest} = useFetch();
+    useEffect( () => {
+        const getCart = async() => {
+            await fetchRequest(`cart`, "GET");
+            if(state === "done") {
+                let cost = 0;
+                for (let json in data) {
+                    cost += data[json].price * data[json].quantity;
+                }
+                setTotalCost(cost);
+                setCart(data);
+            }
         }
-        setTotalCost(cost);
-        setCart(data);
-      });
-  }, []);
+        getCart();
+    }, [state])
 
   const handleClick = async (e, id) => {
-    await fetch(`http://localhost:8080/cart/${id}`, { method: "DELETE" });
-    const newCart = await cart.filter((c) => c.id !== id);
+
+    await fetchRequest(`cart/${id}`, "DELETE" );
+    const newCart = cart.filter((c) => c.id !== id);
     await setCart(newCart);
     let cost = 0;
     for (let json in newCart) {
@@ -39,7 +43,7 @@ function Cart() {
     setTotalCost(cost);
   };
 
-  const cartItems = cart.map((cartItem) => {
+  const cartItems = cart && cart.map((cartItem) => {
     return (
       <div key={cartItem.id}>
         <ListItem alignItems="flex-start">

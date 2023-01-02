@@ -5,6 +5,7 @@ import {act} from "react-dom/test-utils";
 describe("Testing the Carts Layout", () => {
 
     it("testing Cart Item Name", async() => {
+        await prePopulateProductList();
         await render(<Cart />);
         const productElement = await screen.findByText(sampleItem[0].regex)
         expect(productElement).toBeInTheDocument();
@@ -12,6 +13,7 @@ describe("Testing the Carts Layout", () => {
     })
 
     it("testing Cart Item Price", async() => {
+        await prePopulateProductList();
         await render(<Cart />);
         const productElement = await screen.findByTestId(`ItemPrice_${sampleItem[0].id}` )
         expect(productElement).toBeInTheDocument();
@@ -118,7 +120,7 @@ const sampleItem = [
     {
     id: 3,
     name: "Beef - Ground Lean Fresh",
-    regex: /Beef - Ground Lean Fresh/i,
+    regex: /Beef/i,
     price: 67,
     meta: "Managed actuating open architecture",
     cart: true,
