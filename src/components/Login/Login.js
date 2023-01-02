@@ -45,6 +45,7 @@ function Login() {
               id="email"
               label="User Name"
               name="email"
+              data-testid={"login_username"}
               value={username}
               onChange={(e) => {
                 setUserName(e.target.value);
@@ -61,6 +62,7 @@ function Login() {
               onChange={(e) => {
                 setPassword(e.target.value);
               }}
+              data-testid={"login_password"}
               label="Password"
               type="password"
               id="password"
@@ -70,6 +72,7 @@ function Login() {
               onClick={handleSubmit}
               fullWidth
               variant="contained"
+              data-testid={"login_signin"}
               sx={{ mt: 3, mb: 2 }}
             >
               Sign In
