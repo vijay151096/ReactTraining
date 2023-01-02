@@ -810,51 +810,6 @@
       "cart": false,
       "details": "Replacement of Left Ankle Joint with Synthetic Substitute, Cemented, Open Approach",
       "quantity": 1
-    },
-    {
-      "id": 6,
-      "name": "Bread - Sticks, Thin, Plain",
-      "price": 58,
-      "meta": "Pre-emptive multi-tasking projection",
-      "cart": false,
-      "details": "Insertion of Intraluminal Device into Left External Iliac Artery, Percutaneous Approach",
-      "quantity": 1
-    },
-    {
-      "id": 7,
-      "name": "Sugar - White Packet",
-      "price": 90,
-      "meta": "Robust 24/7 approach",
-      "cart": false,
-      "details": "Perceptual Processing Assessment using Augmentative / Alternative Communication Equipment",
-      "quantity": 3
-    },
-    {
-      "id": 8,
-      "name": "Turkey - Breast, Double",
-      "price": 52,
-      "meta": "Synergized demand-driven project",
-      "cart": true,
-      "details": "Extirpation of Matter from Left Fibula, Open Approach",
-      "quantity": 2
-    },
-    {
-      "id": 12,
-      "name": "Cheese - Shred Cheddar / Mozza",
-      "price": 69,
-      "meta": "Polarised systemic synergy",
-      "cart": false,
-      "details": "Revision of Synthetic Substitute in Right Tibia, Percutaneous Approach",
-      "quantity": 6
-    },
-    {
-      "id": 3,
-      "name": "Beef - Ground Lean Fresh",
-      "price": 67,
-      "meta": "Managed actuating open architecture",
-      "cart": true,
-      "details": "Insertion of Radioactive Element into Pericardial Cavity, Percutaneous Endoscopic Approach",
-      "quantity": 1
     }
   ],
   "users": [
