@@ -5,17 +5,11 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Divider } from "semantic-ui-react";
-import styled from "styled-components";
+import StyledDiv from "./StyledDiv";
+
 
 const ProductDetail = ({ handleClick, item }) => {
-  const StyledDiv = styled.div({
-    position: "fixed",
-    top: "50%",
-    left: "50%",
-    zIndex: "20",
-    transform: "translate(-50%, -50%)",
-    backgroundColor: "aliceblue",
-  });
+  
 
   return (
     <StyledDiv>
