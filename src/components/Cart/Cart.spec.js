@@ -44,8 +44,9 @@ describe("Testing the Carts Layout", () => {
 
 describe("Testing the Carts Functionality", () => {
 
-    it("testing Cart when No Items are in Cart", () => {
-        render(<Cart />);
+    it("testing Cart when No Items are in Cart", async() => {
+        clearProductList()
+        await act( () => render(<Cart />));
         const cartElement = screen.getByRole("heading", {name: /No Items in Cart/i});
         expect(cartElement).toBeInTheDocument();
     })
@@ -70,7 +71,8 @@ describe("Testing the Carts Functionality", () => {
     })
 
     it( "remove the Element from the Cart When Remove Button is pressed", async() => {
-        await render(<Cart/>)
+        // eslint-disable-next-line testing-library/no-unnecessary-act
+        await act( ()=> {render(<Cart/>)})
         const removeButtonElement = await screen.findByTestId('removeProduct_3')
         clearProductList();
         // eslint-disable-next-line testing-library/no-unnecessary-act
@@ -87,6 +89,7 @@ describe("Testing the Carts Functionality", () => {
         const response = [];
         global.fetch = jest.fn(() => Promise.resolve({
                 response: response,
+                ok: true,
                 json: () => { return response }
             }
         ));
@@ -108,12 +111,14 @@ const prePopulateProductList =  async(moreItem) => {
     if(moreItem){
         response = [sampleItem[0], sampleItem[1]];
     }
-    global.fetch = await jest.fn(() => Promise.resolve({
+    const promise = Promise.resolve({
             response: response,
             ok: true,
             json: () => { return response }
         }
-    ));
+    );
+    global.fetch = await jest.fn(() => promise);
+    await promise
 }
 
 
