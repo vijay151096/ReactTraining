@@ -6,7 +6,6 @@ const StyledDiv = styled.div({
   left: "50%",
   zIndex: "20",
   transform: "translate(-50%, -50%)",
-  backgroundColor: "aliceblue",
 });
 
 export default StyledDiv;

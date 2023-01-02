@@ -6,6 +6,7 @@ import Cart from "./components/Cart/Cart";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import UserContext from "./store/UserContext";
 import Login from "./components/Login/Login";
+import Theme from "./components/Theme";
 
 function App() {
   const { isAuthenticated } = useContext(UserContext);
@@ -19,11 +20,13 @@ function App() {
 
   return (
     <React.Fragment>
-      <BrowserRouter>
-        <Header />
-        {!isAuthenticated && <Login />}
-        {isAuthenticated && home}
-      </BrowserRouter>
+      <Theme>
+        <BrowserRouter>
+          <Header />
+          {!isAuthenticated && <Login />}
+          {isAuthenticated && home}
+        </BrowserRouter>
+      </Theme>
     </React.Fragment>
   );
 }
