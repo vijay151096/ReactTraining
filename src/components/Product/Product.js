@@ -5,7 +5,7 @@ import { CardActions, CardContent, CardMedia } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import classes from "./Product.module.css";
 import ProductDetailModal from "../ProductDetail/ProductDetailModal";
-import useFetch from "../../hooks/use-Fetch";
+import useFetch from "../../hooks/useFetch";
 
 function Product({ item }) {
   const [quantity, setQuantity] = useState(1);

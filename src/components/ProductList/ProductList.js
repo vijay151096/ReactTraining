@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import Product from "../Product/Product";
 import { Card } from "semantic-ui-react";
 import classes from "./ProductList.module.css";
-import useFetch from "../../hooks/use-Fetch";
+import useFetch from "../../hooks/useFetch";
 import PageLoader from "../Loader/PageLoader";
 
 function ProductList() {

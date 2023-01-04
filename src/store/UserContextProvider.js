@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import UserContext from "./UserContext";
-import useFetch from "../hooks/use-Fetch";
+import useFetch from "../hooks/useFetch";
 
 function UserContextProvider(props) {
   const user = localStorage.getItem("username");

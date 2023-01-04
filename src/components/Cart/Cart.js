@@ -10,7 +10,7 @@ import {
 import Typography from "@mui/material/Typography";
 import { Button } from "semantic-ui-react";
 import classes from "./Cart.module.css";
-import useFetch from "../../hooks/use-Fetch";
+import useFetch from "../../hooks/useFetch";
 
 function Cart() {
   const [cart, setCart] = useState(null);
