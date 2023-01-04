@@ -2,24 +2,22 @@ import { render, act } from "@testing-library/react";
 import ProductList from "./ProductList";
 
 describe("Product List functionality", () => {
-  it("should fetch the products data when component is rendered", async() => {
+  it("should fetch the products data when component is rendered", async () => {
     const promise = Promise.resolve({
       json: () => {
-        return response
+        return response;
       },
-      ok: true
+      ok: true,
     });
 
-    global.fetch = jest.fn(() => promise );
-    await promise;
+    global.fetch = jest.fn(() => promise);
+
     // eslint-disable-next-line testing-library/no-unnecessary-act
-    await act(() => {
-      render(<ProductList />);
-    });
+    render(<ProductList />);
+    await act(() => global.fetch);
 
     expect(global.fetch).toBeCalled();
   });
-
 
   const response = [
     {
@@ -37,7 +35,7 @@ describe("Product List functionality", () => {
       meta: "Sharable exuding circuit",
       cart: false,
       details:
-          "Replacement of Left Ankle Joint with Synthetic Substitute, Cemented, Open Approach",
+        "Replacement of Left Ankle Joint with Synthetic Substitute, Cemented, Open Approach",
     },
     {
       id: 3,
@@ -46,7 +44,7 @@ describe("Product List functionality", () => {
       meta: "Managed actuating open architecture",
       cart: true,
       details:
-          "Insertion of Radioactive Element into Pericardial Cavity, Percutaneous Endoscopic Approach",
+        "Insertion of Radioactive Element into Pericardial Cavity, Percutaneous Endoscopic Approach",
     },
     {
       id: 4,
@@ -54,8 +52,7 @@ describe("Product List functionality", () => {
       price: 1,
       meta: "Digitized needs-based algorithm",
       cart: true,
-      details:
-          "Excision of Left Trunk Tendon, Open Approach, Diagnostic",
+      details: "Excision of Left Trunk Tendon, Open Approach, Diagnostic",
     },
   ];
 });

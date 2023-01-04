@@ -76,10 +76,8 @@ describe("Product Functionality", () => {
   it("should not decrease the count when minus icon is clicked having item quantity as 1", () => {
     const { getByTestId } = render(<Product item={item} />);
     expect(getByTestId("item-quantity")).toHaveTextContent("1");
-    act( () => {
-    fireEvent.click(getByTestId("minus-icon"));
-    } )
 
+    fireEvent.click(getByTestId("minus-icon"));
 
     expect(getByTestId("item-quantity")).toHaveTextContent("1");
   });
@@ -93,38 +91,35 @@ describe("Product Functionality", () => {
     expect(getByTestId("item-quantity")).toHaveTextContent("1");
   });
 
-  it("should send the request when user clicks on add button", async() => {
+  it("should send the request when user clicks on add button", async () => {
     const promise = Promise.resolve({
       ok: true,
       json: () => {
         return {};
       },
     });
-    global.fetch = jest.fn(() => promise );
-    await promise
+    global.fetch = jest.fn(() => promise);
     const { getByTestId } = render(<Product item={item} />);
     // eslint-disable-next-line testing-library/no-unnecessary-act
-    await act(() => {
-      fireEvent.click(getByTestId(`addProduct_${item.id}`));
-    });
+    fireEvent.click(getByTestId(`addProduct_${item.id}`));
+    await act(() => global.fetch);
 
     expect(global.fetch).toBeCalled();
   });
-  it("should reset the count when user clicks on add button", async() => {
-    const promise =  Promise.resolve({
+  it("should reset the count when user clicks on add button", async () => {
+    const promise = Promise.resolve({
       ok: true,
       json: () => {
         return {};
       },
     });
-    global.fetch = jest.fn(async() => promise);
-    await promise;
+    global.fetch = jest.fn(() => promise);
+
     const { getByTestId } = render(<Product item={item} />);
 
     // eslint-disable-next-line testing-library/no-unnecessary-act
-    await act(() => {
-      fireEvent.click(getByTestId(`addProduct_${item.id}`));
-    });
+    fireEvent.click(getByTestId(`addProduct_${item.id}`));
+    await act(() => global.fetch);
 
     expect(global.fetch).toBeCalled();
     expect(getByTestId("item-quantity")).toHaveTextContent("1");
