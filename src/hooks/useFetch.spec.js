@@ -9,9 +9,9 @@ describe("useFetch functionality", () => {
     expect(result.current.state).toBe("loading");
   });
 
-  it("initial data should be undefined when rendered", () => {
+  it("initial data should be null when rendered", () => {
     const { result } = renderHook(() => useFetch());
-    expect(result.current.data).toBe(undefined);
+    expect(result.current.data).toBe(null);
   });
   it("fetchData should be Function to Fetch", () => {
     const { result } = renderHook(() => useFetch());
@@ -49,7 +49,7 @@ describe("useFetch functionality", () => {
     await act( () => result.current.fetchRequest("users", "GET") )
     await waitFor(() => {
       expect(result.current.state).toBe("error");
-      expect(result.current.data).toBe(undefined);
+      expect(result.current.data).toBe(null);
     })
 
   });
