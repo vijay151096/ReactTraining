@@ -1,12 +1,13 @@
+import { useTheme } from "styled-components";
 import StyledBackdrop from "./StyledBackdrop";
 
 type BackDropProps = {
   handleClick: () => void;
-  theme: Object;
 };
 
 const Backdrop: React.FC<BackDropProps> = (props) => {
-  return <StyledBackdrop theme={props.theme} onClick={props.handleClick} />;
+  const theme = useTheme();
+  return <StyledBackdrop theme={theme} onClick={props.handleClick} />;
 };
 
 export default Backdrop;
