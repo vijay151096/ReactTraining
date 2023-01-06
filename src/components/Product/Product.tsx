@@ -6,8 +6,11 @@ import Typography from "@mui/material/Typography";
 import classes from "./Product.module.css";
 import ProductDetailModal from "../ProductDetail/ProductDetailModal";
 import useFetch from "../../hooks/useFetch";
+import ItemType from "../model/ItemType";
 
-function Product({ item }) {
+const Product: React.FC<{ item: Exclude<ItemType, "quantity"> }> = ({
+  item,
+}) => {
   const [quantity, setQuantity] = useState(1);
 
   const { state, fetchRequest } = useFetch();
@@ -15,15 +18,15 @@ function Product({ item }) {
   const [isProductDetailsVisibile, setIsProductDetailsVisibile] =
     useState(false);
 
-  const handleNameClick = (e) => {
+  const handleNameClick = () => {
     setIsProductDetailsVisibile(true);
   };
 
-  const handleCloseProductDetail = (e) => {
+  const handleCloseProductDetail = () => {
     setIsProductDetailsVisibile(false);
   };
 
-  const handleClick = async (e, id) => {
+  const handleClick = async (e: React.MouseEvent, id: number) => {
     const bodyToSent = { ...item, quantity: quantity };
     await fetchRequest("cart", "POST", bodyToSent);
   };
@@ -65,7 +68,7 @@ function Product({ item }) {
         )}
         <Typography
           data-testid="item-meta"
-          variant="body3"
+          variant="body2"
           color="text.secondary"
         >
           {item.meta}
@@ -118,6 +121,6 @@ function Product({ item }) {
       </CardActions>
     </Card>
   );
-}
+};
 
 export default Product;

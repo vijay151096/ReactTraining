@@ -5,6 +5,7 @@ import { Card } from "semantic-ui-react";
 import classes from "./ProductList.module.css";
 import useFetch from "../../hooks/useFetch";
 import PageLoader from "../Loader/PageLoader";
+import ItemType from "../model/ItemType";
 
 function ProductList() {
   const { data, state, fetchRequest } = useFetch();
@@ -18,7 +19,7 @@ function ProductList() {
 
   let products =
     state === "done" ? (
-      data.map((item) => <Product key={item.id} item={item} />)
+      data.map((item: ItemType) => <Product key={item.id} item={item} />)
     ) : state === "error" ? (
       <h1>Error occured while fetching data</h1>
     ) : (

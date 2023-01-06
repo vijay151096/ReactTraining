@@ -8,6 +8,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { MouseEvent } from "react";
 
 function Login() {
   let { login } = useContext(UserContext);
@@ -16,7 +17,7 @@ function Login() {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: MouseEvent) => {
     e.preventDefault();
     login(username, password);
   };
@@ -37,7 +38,7 @@ function Login() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="main" noValidate sx={{ mt: 1 }}>
+          <Box component="main" sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required

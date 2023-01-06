@@ -8,7 +8,7 @@ import classes from "./Header.module.css";
 import UserContext from "../../store/UserContext";
 import {useContext} from "react";
 
-function Header({}) {
+function Header() {
 
   const {isAuthenticated, logout} = useContext(UserContext);
 

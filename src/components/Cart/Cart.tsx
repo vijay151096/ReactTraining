@@ -11,9 +11,10 @@ import Typography from "@mui/material/Typography";
 import { Button } from "semantic-ui-react";
 import classes from "./Cart.module.css";
 import useFetch from "../../hooks/useFetch";
+import ItemType from "../model/ItemType";
 
 function Cart() {
-  const [cart, setCart] = useState(null);
+  const [cart, setCart] = useState<ItemType[]>([]);
   const [totalCost, setTotalCost] = useState(0);
   const { state, data, fetchRequest } = useFetch();
 
@@ -32,14 +33,17 @@ function Cart() {
     getCart();
   }, [state]);
 
-  const handleClick = async (e, id) => {
-    await fetchRequest(`cart/${id}`, "DELETE" );
+  const handleClick = async (e: React.MouseEvent, id: number) => {
+    await fetchRequest(`cart/${id}`, "DELETE");
     const newCart = cart.filter((c) => c.id !== id);
+
     setCart(newCart);
     let cost = 0;
-    for (let json in newCart) {
+    let json: keyof typeof newCart;
+    for (json in newCart) {
       cost += newCart[json].price * newCart[json].quantity;
     }
+
     setTotalCost(cost);
   };
 

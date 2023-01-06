@@ -2,9 +2,11 @@ import { useState } from "react";
 
 const useFetch = () => {
   const [state, setState] = useState("loading");
-  const [data, setData] = useState();
+  const [data, setData] = useState<any>(null);
 
-  const fetchData = async (uri, method, body) => {
+  type MethodType = "GET"|"POST"|"DELETE"
+
+  const fetchData = async (uri:string, method:MethodType, body?:any) => {
     try {
       const response = await fetch(`http://localhost:8080/${uri}`, {
         method: method,
