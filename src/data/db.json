@@ -801,7 +801,17 @@
       "details": "Drainage of Left Fibula, Open Approach, Diagnostic"
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "id": 3,
+      "name": "Beef - Ground Lean Fresh",
+      "price": 67,
+      "meta": "Managed actuating open architecture",
+      "cart": true,
+      "details": "Insertion of Radioactive Element into Pericardial Cavity, Percutaneous Endoscopic Approach",
+      "quantity": 4
+    }
+  ],
   "users": [
     {
       "id": 1,

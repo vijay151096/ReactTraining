@@ -1,4 +1,4 @@
-import { render, act } from "@testing-library/react";
+import { render, act, waitFor } from "@testing-library/react";
 import ProductList from "./ProductList";
 
 describe("Product List functionality", () => {
@@ -14,9 +14,8 @@ describe("Product List functionality", () => {
 
     // eslint-disable-next-line testing-library/no-unnecessary-act
     render(<ProductList />);
-    await act(() => global.fetch);
 
-    expect(global.fetch).toBeCalled();
+    waitFor(() => expect(global.fetch).toBeCalled());
   });
 
   const response = [

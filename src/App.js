@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import UserContext from "./store/UserContext";
 import Login from "./components/Login/Login";
 import Theme from "./components/Theme";
+import SampleTypescriptComponent from "./components/SampleTypescriptComponent";
 
 function App() {
   const { isAuthenticated } = useContext(UserContext);
@@ -30,5 +31,9 @@ function App() {
     </React.Fragment>
   );
 }
+
+/*function App() {
+  return <SampleTypescriptComponent person={{ name: "MyName", age: 4 }} />;
+}*/
 
 export default App;
