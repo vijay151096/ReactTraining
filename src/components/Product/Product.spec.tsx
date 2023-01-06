@@ -98,7 +98,7 @@ describe("Product Functionality", () => {
         return {};
       },
     });
-    global.fetch = jest.fn(() => promise);
+    global.fetch = jest.fn(() => promise) as jest.Mock;
     const { getByTestId } = render(<Product item={item} />);
     // eslint-disable-next-line testing-library/no-unnecessary-act
     fireEvent.click(getByTestId(`addProduct_${item.id}`));
@@ -113,7 +113,7 @@ describe("Product Functionality", () => {
         return {};
       },
     });
-    global.fetch = jest.fn(() => promise);
+    global.fetch = jest.fn(() => promise) as jest.Mock;
 
     const { getByTestId } = render(<Product item={item} />);
 

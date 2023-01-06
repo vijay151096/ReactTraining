@@ -6,10 +6,10 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Divider } from "semantic-ui-react";
 import StyledDiv from "./StyledDiv";
-import ItemType from "../../model/ItemType";
+import {ProductItemType} from "../../model/ItemType";
 
 type ProductDetailProps = {
-  item: ItemType,
+  item: ProductItemType,
   handleClick: () => void
 }
 

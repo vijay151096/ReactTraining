@@ -1,4 +1,4 @@
-type ItemType = {
+export type CartItemType = {
   id: number;
   name: string;
   price: number;
@@ -7,5 +7,11 @@ type ItemType = {
   details: string;
   quantity: number;
 };
-
-export default ItemType;
+export type ProductItemType = {
+  id: number;
+  name: string;
+  price: number;
+  meta: string;
+  cart: boolean;
+  details: string;
+};

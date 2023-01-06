@@ -125,16 +125,16 @@ describe("Testing the Carts Functionality", () => {
   });
 
   const clearProductList = () => {
-    const response = [];
+    const response: [] = [];
     global.fetch = jest.fn(() =>
       Promise.resolve({
-        response: response,
+        //    response: response,
         ok: true,
         json: () => {
           return response;
         },
       })
-    );
+    ) as jest.Mock;
   };
 });
 
@@ -146,7 +146,7 @@ afterEach(() => {
   cleanup();
 });
 
-const prePopulateProductList = (moreItem) => {
+const prePopulateProductList = (moreItem:boolean=false) => {
   let response = [sampleItem[0]];
   if (moreItem) {
     response = [sampleItem[0], sampleItem[1]];
@@ -158,7 +158,7 @@ const prePopulateProductList = (moreItem) => {
       return response;
     },
   });
-  global.fetch = jest.fn(() => promise);
+  global.fetch = jest.fn(() => promise) as jest.Mock;
 };
 
 const sampleItem = [

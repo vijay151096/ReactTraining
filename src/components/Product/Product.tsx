@@ -6,9 +6,10 @@ import Typography from "@mui/material/Typography";
 import classes from "./Product.module.css";
 import ProductDetailModal from "../ProductDetail/ProductDetailModal";
 import useFetch from "../../hooks/useFetch";
-import ItemType from "../model/ItemType";
+import {ProductItemType} from "../model/ItemType";
 
-const Product: React.FC<{ item: Exclude<ItemType, "quantity"> }> = ({
+
+const Product: React.FC<{ item: ProductItemType }> = ({
   item,
 }) => {
   const [quantity, setQuantity] = useState(1);

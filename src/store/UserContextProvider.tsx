@@ -1,19 +1,26 @@
 import React, { useState } from "react";
 import UserContext from "./UserContext";
 import useFetch from "../hooks/useFetch";
+import UserType from "../components/model/UserType";
 
-function UserContextProvider(props) {
+const UserContextProvider: React.FC<{ children: React.ReactNode }> = (
+  props
+) => {
   const user = localStorage.getItem("username");
   const isLoggedIn = user === null ? false : true;
   const [isAuthenticated, setIsAuthenticated] = useState(isLoggedIn);
-  const {data, fetchRequest} = useFetch();
+  const { data, fetchRequest } = useFetch();
 
-  const login = async (username, password) => {
+  const login = async (username: string, password: string) => {
     await fetchRequest("users", "GET");
-    const userDetails = await data && data.filter(
-      (user) => user.username === username
-    )[0];
-    if (userDetails && userDetails.username && userDetails.password === password) {
+    const userDetails =
+      (await data) &&
+      data.filter((user: UserType) => user.username === username)[0];
+    if (
+      userDetails &&
+      userDetails.username &&
+      userDetails.password === password
+    ) {
       setIsAuthenticated(true);
       localStorage.setItem("username", userDetails.username);
     }
@@ -24,10 +31,12 @@ function UserContextProvider(props) {
   };
 
   return (
-    <UserContext.Provider value={{ isAuthenticated, login: login, logout: logout }} >
+    <UserContext.Provider
+      value={{ isAuthenticated, login: login, logout: logout }}
+    >
       {props.children}
     </UserContext.Provider>
   );
-}
+};
 
 export default UserContextProvider;

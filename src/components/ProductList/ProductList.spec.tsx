@@ -10,7 +10,7 @@ describe("Product List functionality", () => {
       ok: true,
     });
 
-    global.fetch = jest.fn(() => promise);
+    global.fetch = jest.fn(() => promise) as jest.Mock;
 
     // eslint-disable-next-line testing-library/no-unnecessary-act
     render(<ProductList />);

@@ -13,7 +13,7 @@ function App() {
 
   const home = (
     <Routes>
-      <Route path="/" exact element={<ProductList />} />
+      <Route path="/" element={<ProductList />} />
       <Route path="/cart" element={<Cart />} />
     </Routes>
   );
