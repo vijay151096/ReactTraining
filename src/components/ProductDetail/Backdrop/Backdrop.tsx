@@ -1,6 +1,10 @@
 import StyledBackdrop from "./StyledBackdrop";
 
-const Backdrop = (props) => {
+type BackDropProps = {
+  handleClick: () => void
+}
+
+const Backdrop = (props: BackDropProps) => {
   
   return <StyledBackdrop onClick={props.handleClick} />;
 };

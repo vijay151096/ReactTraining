@@ -6,9 +6,14 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Divider } from "semantic-ui-react";
 import StyledDiv from "./StyledDiv";
+import ItemType from "../../model/ItemType";
 
+type ProductDetailProps = {
+  item: ItemType,
+  handleClick: () => void
+}
 
-const ProductDetail = ({ handleClick, item }) => {
+const ProductDetail = ({ handleClick, item }: ProductDetailProps) => {
   
 
   return (
