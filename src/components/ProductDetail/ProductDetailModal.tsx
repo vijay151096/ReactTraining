@@ -1,5 +1,5 @@
-import React from "react";
 import ReactDOM from "react-dom";
+import { useTheme } from "styled-components";
 import { ProductItemType } from "../model/ItemType";
 import Backdrop from "./Backdrop/Backdrop";
 import ProductDetail from "./ProductDetail/ProductDetail";
@@ -13,6 +13,7 @@ type ProductDetailModalProps = {
 };
 
 function ProductDetailModal(props: ProductDetailModalProps) {
+  const theme = useTheme();
   return (
     <>
       {ReactDOM.createPortal(
@@ -20,7 +21,7 @@ function ProductDetailModal(props: ProductDetailModalProps) {
         overlayElement as HTMLDivElement
       )}
       {ReactDOM.createPortal(
-        <Backdrop handleClick={props.handleClick} />,
+        <Backdrop theme={theme} handleClick={props.handleClick} />,
         backdropElement as HTMLDivElement
       )}
     </>

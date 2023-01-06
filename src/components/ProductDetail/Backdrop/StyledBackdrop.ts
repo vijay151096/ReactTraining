@@ -1,14 +1,17 @@
-import React from "react";
-import styled, { useTheme } from "styled-components";
+import styled from "styled-components";
 
-const StyledBackdrop = styled.div({
-  position: "fixed",
-  top: 0,
-  left: 0,
-  width: "100vw",
-  height: "100vh",
-  backgroundColor: "#80808077",
-  zIndex: 10,
-});
+type Props = {
+  theme: Object;
+};
+
+const StyledBackdrop = styled.div<Props>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: ${(props) => props.theme.colors.grey};
+  zindex: 10;
+`;
 
 export default StyledBackdrop;

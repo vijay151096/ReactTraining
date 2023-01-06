@@ -1,5 +1,4 @@
-import React from "react";
-import styled, { useTheme } from "styled-components";
+import styled from "styled-components";
 
 const StyledBackdrop = styled.div({
   position: "fixed",
